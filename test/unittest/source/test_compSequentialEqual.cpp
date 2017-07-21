@@ -23,5 +23,26 @@ TEST_CASE("sequentialEqual", "[comp][sequentialEqual")
         REQUIRE(comp::sequentialEqual(s1, s1));
         REQUIRE(!comp::sequentialEqual(s1, s2));
     }
+
+    SECTION("two pairs")
+    {
+        REQUIRE(comp::sequentialEqual(i1, i1, d1, d1));
+        REQUIRE(!comp::sequentialEqual(i1, i2, d1, d1));
+        REQUIRE(!comp::sequentialEqual(i1, i1, d1, d2));
+        REQUIRE(comp::sequentialEqual(i1, i1, s1, s1));
+        REQUIRE(!comp::sequentialEqual(i1, i2, s1, s1));
+        REQUIRE(!comp::sequentialEqual(i1, i1, s1, s2));
+        REQUIRE(comp::sequentialEqual(d1, d1, s1, s1));
+        REQUIRE(!comp::sequentialEqual(d1, d2, s1, s1));
+        REQUIRE(!comp::sequentialEqual(d1, d1, s1, s2));
+    }
+
+    SECTION("three pairs")
+    {
+        REQUIRE(comp::sequentialEqual(i1, i1, d1, d1, s1, s1));
+        REQUIRE(!comp::sequentialEqual(i1, i2, d1, d1, s1, s1));
+        REQUIRE(!comp::sequentialEqual(i1, i1, d1, d2, s1, s1));
+        REQUIRE(!comp::sequentialEqual(i1, i1, d1, d1, s1, s2));
+    }
 }
 

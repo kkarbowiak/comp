@@ -26,5 +26,58 @@ TEST_CASE("sequentialLess", "[comp][sequentialLess]")
         REQUIRE(!comp::sequentialLess(s1, s1));
         REQUIRE(!comp::sequentialLess(s2, s1));
     }
+
+    SECTION("two pairs")
+    {
+        REQUIRE(!comp::sequentialLess(i1, i1, d1, d1));
+        REQUIRE(comp::sequentialLess(i1, i1, d1, d2));
+        REQUIRE(!comp::sequentialLess(i1, i1, d2, d1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d2));
+        REQUIRE(comp::sequentialLess(i1, i2, d2, d1));
+        REQUIRE(!comp::sequentialLess(i1, i1, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i1, s1, s2));
+        REQUIRE(!comp::sequentialLess(i1, i1, s2, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, s1, s2));
+        REQUIRE(comp::sequentialLess(i1, i2, s2, s1));
+        REQUIRE(!comp::sequentialLess(d1, d1, s1, s1));
+        REQUIRE(comp::sequentialLess(d1, d1, s1, s2));
+        REQUIRE(!comp::sequentialLess(d1, d1, s2, s1));
+        REQUIRE(comp::sequentialLess(d1, d2, s1, s1));
+        REQUIRE(comp::sequentialLess(d1, d2, s1, s2));
+        REQUIRE(comp::sequentialLess(d1, d2, s2, s1));
+    }
+
+    SECTION("three pairs")
+    {
+        REQUIRE(!comp::sequentialLess(i1, i1, d1, d1, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i1, d1, d1, s1, s2));
+        REQUIRE(!comp::sequentialLess(i1, i1, d1, d1, s2, s1));
+        REQUIRE(comp::sequentialLess(i1, i1, d1, d2, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i1, d1, d2, s1, s2));
+        REQUIRE(comp::sequentialLess(i1, i1, d1, d2, s2, s1));
+        REQUIRE(!comp::sequentialLess(i1, i1, d2, d1, s1, s1));
+        REQUIRE(!comp::sequentialLess(i1, i1, d2, d1, s1, s2));
+        REQUIRE(!comp::sequentialLess(i1, i1, d2, d1, s2, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d1, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d1, s1, s2));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d1, s2, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d2, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d2, s1, s2));
+        REQUIRE(comp::sequentialLess(i1, i2, d1, d2, s2, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d2, d1, s1, s1));
+        REQUIRE(comp::sequentialLess(i1, i2, d2, d1, s1, s2));
+        REQUIRE(comp::sequentialLess(i1, i2, d2, d1, s2, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d1, s1, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d1, s1, s2));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d1, s2, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d2, s1, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d2, s1, s2));
+        REQUIRE(!comp::sequentialLess(i2, i1, d1, d2, s2, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d2, d1, s1, s1));
+        REQUIRE(!comp::sequentialLess(i2, i1, d2, d1, s1, s2));
+        REQUIRE(!comp::sequentialLess(i2, i1, d2, d1, s2, s1));
+    }
 }
 

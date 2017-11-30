@@ -4,7 +4,7 @@ Sometime a need arises to implement equal-to operator (`operator==`) or less-tha
 
 Rolling the implementation by hand is fine if the class has only few members, but quickly gets tedious and error-prone as the number of members to compare grows. Consider this example:
 
-```
+```c++
 struct Employee
 {
     std::string first_name;
@@ -57,7 +57,7 @@ C++11 makes implementing the comparisons much easier by introducing `std::tuple`
 
 Using the above-mentioned facilities, the comparisons can be made shorter:
 
-```
+```c++
 bool operator==(Employee const & l, Employee const & r)
 {
     return (std::tie(l.first_name, l.last_name, l.position) == std::tie(r.first_name, r.last_name, r.position));
@@ -75,7 +75,7 @@ The pro is that these versions are much shorter, but the con is that the compare
 
 This module delivers two generalised comparison functions: `sequentialEqual` and `sequentialLess`, which do pair-by-pair comparisons with short-circuit evaluation. The advantage over the tuple based version is that compared structures are decomposed into compared pairs, which makes mistakes much easier to catch:
 
-```
+```c++
 bool operator==(Employee const & l, Employee const & r)
 {
     return sequentialEqual(

@@ -1,3 +1,7 @@
+/*
+    Copyright 2017 Krzysztof Karbowiak
+*/
+
 #ifndef COMP_SEQUENTIAL_LESS_H
 #define COMP_SEQUENTIAL_LESS_H
 

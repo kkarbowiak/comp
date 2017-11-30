@@ -1,3 +1,7 @@
+/*
+    Copyright 2017 Krzysztof Karbowiak
+*/
+
 #ifndef COMP_SEQUENTIAL_EQUAL_H
 #define COMP_SEQUENTIAL_EQUAL_H
 
